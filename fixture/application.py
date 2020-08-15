@@ -1,15 +1,16 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
+from fixture.project import ProjectHelper
 
 
 class Application:
 
     def __init__(self, browser, base_url):
-        if browser == "firefox":
-            self.wd = webdriver.Firefox()
-            self.wd.implicitly_wait(5)
-        elif browser == "chrome":
+        if browser == "chrome":
             self.wd = webdriver.Chrome()
+            self.wd.implicitly_wait(5)
+        elif browser == "firefox":
+            self.wd = webdriver.Firefox()
             self.wd.implicitly_wait(5)
         # elif browser == "ie":
         #     self.wd = webdriver.Ie()
@@ -18,6 +19,7 @@ class Application:
             raise ValueError("Unrecognized browser %s" % browser)
         # self.wd.implicitly_wait(2)
         self.session = SessionHelper(self)
+        # self.project = ProjectHelper(self)
         self.base_url = base_url
 
     def is_valid(self):
@@ -33,7 +35,6 @@ class Application:
         # if not (wd.current_url == (self.base_url) and len(wd.find_elements_by_xpath("//input[@type='button']")) > 1):
         # # if not (wd.current_url == (self.base_url):
         #     wd.get(self.base_url)
-
 
     def destroy(self):
         self.wd.quit()
