@@ -14,18 +14,18 @@ class ProjectHelper:
         wd.find_element_by_name("name").click()
         wd.find_element_by_name("name").clear()
         wd.find_element_by_name("name").send_keys(project_name)
-        # time.sleep(3)
+        # time.sleep(1)
         wd.find_element_by_xpath('//select[@name="status"]').click()
-        # time.sleep(3)
+        # time.sleep(1)
         wd.find_element_by_css_selector("select[name='status']>option[value='10']").click()
         wd.find_element_by_xpath('//input[@type="checkbox"]').click()
-        # time.sleep(3)
+        # time.sleep(1)
         wd.find_element_by_xpath('//input[@type="checkbox"]').click()
-        # time.sleep(3)
+        # time.sleep(1)
         wd.find_element_by_name("description").send_keys("description project -'%s'" % project_name)
-        # time.sleep(3)
+        # time.sleep(1)
         wd.find_element_by_css_selector("input[value='Add Project']").click()
-        # time.sleep(5)
+        # time.sleep(1)
         # self.project_cache = None
         # self.open_home_page()
         # self.project_cache = None
@@ -37,11 +37,10 @@ class ProjectHelper:
             'body div:nth-child(4) p span:nth-child(2) a').click()
 
     def del_project(self):
-        # create del project
         wd = self.app.wd
-        # self.manage_project_page()
-        # time.sleep(3)
-        wd.find_element_by_xpath("//table[3]/tbody/tr[3]/td[1]").click()
+        self.manage_project_page()
+        # time.sleep(1)
+        wd.find_element_by_xpath("//table[3]/tbody/tr[3]/td[1]/a").click()
         time.sleep(1)
         wd.find_element_by_css_selector('input[value="Delete Project"]').click()
         time.sleep(1)
@@ -53,7 +52,7 @@ class ProjectHelper:
         wd = self.app.wd
         self.manage_project_page()
         wd.find_element_by_link_text(name).click()
-        # wd.find_element_by_xpath("//table[3]/tbody/tr[%d]/td[1]" % d).click()
+        # wd.find_element_by_xpath("//table[3]/tbody/tr[%d]/td[1]/a" % d).click()
         time.sleep(1)
         wd.find_element_by_css_selector('input[value="Delete Project"]').click()
         time.sleep(1)

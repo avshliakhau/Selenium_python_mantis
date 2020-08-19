@@ -17,4 +17,3 @@ def test_delete_project(app):
     old_project_list.remove(name)
     # print("old_project_list_remove = ", new_project_list)
     assert sorted(old_project_list) == sorted(new_project_list)
-
