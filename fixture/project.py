@@ -1,6 +1,4 @@
 import time
-import string
-import random
 
 
 class ProjectHelper:
@@ -41,14 +39,26 @@ class ProjectHelper:
     def del_project(self):
         # create del project
         wd = self.app.wd
+        # self.manage_project_page()
+        # time.sleep(3)
+        wd.find_element_by_xpath("//table[3]/tbody/tr[3]/td[1]").click()
+        time.sleep(1)
+        wd.find_element_by_css_selector('input[value="Delete Project"]').click()
+        time.sleep(1)
+        wd.find_element_by_css_selector(
+            'input[value="Delete Project"]').click()
+        time.sleep(1)
+
+    def del_some_project(self, name):
+        wd = self.app.wd
         self.manage_project_page()
-        time.sleep(3)
-        wd.find_element_by_xpath("/html/body/table[3]/tbody/tr[3]/td[1]/a").click()
-        time.sleep(3)
+        wd.find_element_by_link_text(name).click()
+        # wd.find_element_by_xpath("//table[3]/tbody/tr[%d]/td[1]" % d).click()
+        time.sleep(1)
         wd.find_element_by_css_selector('input[value="Delete Project"]').click()
-        time.sleep(3)
+        time.sleep(1)
         wd.find_element_by_css_selector('input[value="Delete Project"]').click()
-        time.sleep(3)
+        time.sleep(1)
 
     def get_projects_list(self):
         wd = self.app.wd
