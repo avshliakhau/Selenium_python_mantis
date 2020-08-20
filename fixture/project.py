@@ -41,23 +41,23 @@ class ProjectHelper:
         self.manage_project_page()
         # time.sleep(1)
         wd.find_element_by_xpath("//table[3]/tbody/tr[3]/td[1]/a").click()
-        time.sleep(1)
+        # time.sleep(1)
         wd.find_element_by_css_selector('input[value="Delete Project"]').click()
-        time.sleep(1)
+        # time.sleep(1)
         wd.find_element_by_css_selector(
             'input[value="Delete Project"]').click()
-        time.sleep(1)
+        # time.sleep(1)
 
     def del_some_project(self, name):
         wd = self.app.wd
         self.manage_project_page()
         wd.find_element_by_link_text(name).click()
         # wd.find_element_by_xpath("//table[3]/tbody/tr[%d]/td[1]/a" % d).click()
-        time.sleep(1)
+        # time.sleep(1)
         wd.find_element_by_css_selector('input[value="Delete Project"]').click()
-        time.sleep(1)
+        # time.sleep(1)
         wd.find_element_by_css_selector('input[value="Delete Project"]').click()
-        time.sleep(1)
+        # time.sleep(1)
 
     def get_projects_list(self):
         wd = self.app.wd
