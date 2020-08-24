@@ -65,4 +65,4 @@ def restore_server_configuration(host, username, password):
             if remote.path.isfile("config_inc.php"):
                 remote.remove("config_inc.php")
             remote.rename("config_inc.php.bak", "config_inc.php")
-            
+           
