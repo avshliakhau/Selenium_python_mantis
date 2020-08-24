@@ -6,7 +6,7 @@ from fixture.james import JamesHelper
 
 class Application:
 
-    def __init__(self, browser, base_url):
+    def __init__(self, browser, config):#9.3 изменение base_url меняем на config
         if browser == "chrome":
             self.wd = webdriver.Chrome()
             self.wd.implicitly_wait(5)
@@ -22,7 +22,8 @@ class Application:
         self.session = SessionHelper(self)
         self.project = ProjectHelper(self)
         self.james = JamesHelper(self)
-        self.base_url = base_url
+        self.config = config #9.3 добавили строку
+        self.base_url = config["web"]["baseUrl"] #9.3 изменение base_url меняем на config["web"]["baseUrl"]
 
     def is_valid(self):
         try:

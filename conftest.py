@@ -27,7 +27,8 @@ def app(request, config):
     # web_config = load_config(request.config.getoption("--target"))["web"]#вместо строки используем фикстуру "конфиг"
     # web_config = config["web"]# config["web"] ставим вместо имени переменной в строке №30
     if fixture is None or not fixture.is_valid():
-        fixture = Application(browser=browser, base_url=config["web"]["baseUrl"])
+        fixture = Application(browser=browser, config=config)#№9.3 меняем base_url=config["web"]["baseUrl"] на config=config
+        # fixture = Application(browser=browser, base_url=config["web"]["baseUrl"]) #закоментировал №9.3 меняем base_url=config["web"]["baseUrl"] на config=config
     # fixture.session.ensure_login(username=config["webadmin"]["username"], password=config["webadmin"]["password"])
     return fixture
 

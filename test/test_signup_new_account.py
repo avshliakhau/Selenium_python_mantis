@@ -1,6 +1,6 @@
 
 
 def test_signup_new_account(app):
-    username = "user_#1"
+    username = "user_#3"
     password = "test"
     app.james.ensure_user_exists(username, password)
