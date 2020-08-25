@@ -4,6 +4,7 @@ from fixture.project import ProjectHelper
 from fixture.james import JamesHelper
 from fixture.signup import SignupHelper
 from fixture.mail import MailHelper
+from fixture.soap import SoapHelper
 
 
 class Application:
@@ -26,6 +27,7 @@ class Application:
         self.james = JamesHelper(self)
         self.signup = SignupHelper(self)
         self.mail = MailHelper(self)
+        self.soap = SoapHelper(self)
         self.config = config #9.3 добавили строку
         self.base_url = config["web"]["baseUrl"] #9.3 изменение base_url меняем на config["web"]["baseUrl"]
 
