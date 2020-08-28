@@ -1,4 +1,5 @@
 import time
+from sys import maxsize
 
 
 class ProjectHelper:
@@ -75,3 +76,10 @@ class ProjectHelper:
                     "//table[3]/tbody/tr[%s]/td[1]" % s).text)
                 s += 1
         return result_list
+
+    def id_or_max(self, project):
+        # self.select_project_by_id()
+        if project.id:
+            return int(project.id)
+        else:
+            return maxsize
